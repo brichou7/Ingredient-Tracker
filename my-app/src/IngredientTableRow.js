@@ -1,8 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { FcMinus } from "react-icons/fc";
 const IngredientTableRow = (props) => {
-
     return (
             <tr>
                 <td>

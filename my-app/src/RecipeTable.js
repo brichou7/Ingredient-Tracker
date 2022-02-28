@@ -1,5 +1,4 @@
 import React from "react";
-import TableRow from "./IngredientTableRow"
 import { Link } from "react-router-dom";
 import RecipeTableRow from "./RecipeTableRow";
 

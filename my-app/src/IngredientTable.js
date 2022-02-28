@@ -3,12 +3,19 @@ import IngredientTableRow from "./IngredientTableRow"
 import { Link } from "react-router-dom";
 
 const IngredientTable = () => {
+    let data = require(".//microservice/data_write.json");
+    let ingredients = data["Ingredients"]
     return (
         <div>
             <p>
                 <Link to="/">
                     <button>
                         Back
+                    </button>
+                </Link>
+                <Link to="/AddIngredient">
+                    <button>
+                        Add Ingredient
                     </button>
                 </Link>
             </p>
@@ -22,9 +29,7 @@ const IngredientTable = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <IngredientTableRow name="apple" amount="2"></IngredientTableRow>
-                    <IngredientTableRow name="eggs" amount="12"></IngredientTableRow>
-                    <IngredientTableRow name="chicken breast" amount="3"></IngredientTableRow>
+                {ingredients.map((ingred) => <IngredientTableRow name = {ingred["ingredient-name"]} amount = {ingred["ingredient-quantity"]}> </IngredientTableRow>)}
                 </tbody>
             </table>
         </div>

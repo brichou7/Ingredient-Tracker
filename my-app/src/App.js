@@ -6,6 +6,7 @@ import HomePage from './HomePage';
 import IngredientTable from './IngredientTable';
 import RecipeTable from './RecipeTable';
 import EditRecipe from './AddRecipe';
+import AddIngredient from './AddIngredient';
 
 function App() {
   return (
@@ -27,7 +28,9 @@ function App() {
           <Route exact path="/EditRecipe">
             <EditRecipe></EditRecipe>
           </Route>
-          
+          <Route exact path="/AddIngredient">
+            <AddIngredient></AddIngredient>
+          </Route>
         </Router>
       </header>
     </div>

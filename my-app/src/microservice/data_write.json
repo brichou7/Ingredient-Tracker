@@ -1,0 +1,16 @@
+{
+  "Ingredients": [
+    {
+      "ingredient-name": "Apple",
+      "ingredient-quantity": 2
+    },
+    {
+      "ingredient-name": "Chicken Breast",
+      "ingredient-quantity": 2
+    },
+    {
+      "ingredient-name": "fish",
+      "ingredient-quantity": "3"
+    }
+  ]
+}

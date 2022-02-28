@@ -9,11 +9,11 @@ const RecipeTableRow = (props) => {
                 {props.name}
             </td>
             <td>
-                <Link to = "/EditRecipe">
+                <Link to="/EditRecipe">
                     <button>
                         Edit
                     </button>
-                    </Link>
+                </Link>
             </td>
             <td>
                 <FcMinus></FcMinus>

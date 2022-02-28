@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import React from "react";
-import IngredientTable from "./IngredientTable";
+import IngredientTableRow from "./IngredientTableRow";
 const EditRecipe = () => {
 
     return (

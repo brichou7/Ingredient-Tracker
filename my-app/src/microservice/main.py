@@ -3,40 +3,64 @@
 # OSU Email: carmonar@oregonstate.edu
 # Description: Writes data into JSON file and then microservice actively reads
 #              the JSON file and updates another JSON file with new data.
-# Instructions: My program runs for 10 mins. Write JSON files to "data-write.json". Everything will be copied
-#               into "data-read.json". MUST SAVE "data-write.json" everytime it's written too.
+# Instructions: My program runs for 10 mins. Write JSON files to "data_write.json".
+#               Everything will be copied into "data-read.json". MUST SAVE "data_write.json" everytime it's written too.
 #               Run program from terminal. Open new terminal at this location. Type "python3 main.py".
 #               To end program before 10 mins. "ctrl-c"
 
 import json
+from nis import cat
 import time
-
-start = input("Enter 'Start' to start the process: ")
-print("If needed - To end program ctrl-c" )
-print("Processing...")
+from json.decoder import JSONDecodeError
 
 t_end = time.time() + 60 * 10
 while time.time() < t_end:
-    recipe = None 
-    with open("data_write.json", "r+") as f:
-        recipe = json.load(f)
-        
-
     data = None 
-    with open("data_read.json", "r+") as file:
-        data = json.load(file)
-        if not data:
-            continue
-
     with open("data_write.json", "r+") as f:
-        recipe["Ingredients"].append(data)
-        f.seek(0)
-        json.dump(recipe, f, indent=2)
-    
-    with open("data_read.json", "r+") as file:
-        file.truncate(0)
-        json.dump({}, file)
+        data = json.load(f)
 
-    time.sleep(5)
+    ingredient = None
+    has_ingredient = True
+    with open("ingredient_read.json", "r+") as file:
+        try:
+            ingredient = json.load(file)
+            if ingredient == {}:
+                has_ingredient = False
+        except JSONDecodeError:
+            has_ingredient = False
+
+    if has_ingredient:
+        with open("data_write.json", "r+") as f:
+            data["Ingredients"].append(ingredient)
+            f.seek(0)
+            json.dump(data, f, indent=2)
+
+        with open("ingredient_read.json", "r+") as file:
+            file.truncate(0)
+            json.dump({}, file)
+
+    recipe = None
+    has_recipe = True
+    with open("recipe_read.json", "r+") as file:
+        try:
+            recipe = json.load(file)
+            if recipe == {}:
+                has_recipe = False
+        except JSONDecodeError:
+            has_recipe = False
+
+    if has_recipe:
+        with open("data_write.json", "r+") as f:
+            if recipe and recipe != {}:
+                data["Recipes"].append(recipe)
+                f.seek(0)
+                json.dump(data, f, indent=2)
+        
+        
+        with open("recipe_read.json", "r+") as file:
+            file.truncate(0)
+            json.dump({}, file)
+
+    time.sleep(2)
 
 

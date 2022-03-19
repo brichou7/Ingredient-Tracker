@@ -5,15 +5,6 @@ const AddIngredient = () => {
     const [name, setName] = useState('')
     const [amount, setAmount] = useState(0)
 
-    function updateIngredients() {
-        const newIngredient = { name, amount };
-        var fs = require('browserify-fs');
-        fs.writeFile(".//microservice/data_read.json", JSON.stringify(newIngredient), (error) => {
-            if (error) throw error;
-          });
-        console.log(require(".//microservice/data_read.json"));
-    }
-
     return (
         <div>
             <p>
@@ -29,7 +20,7 @@ const AddIngredient = () => {
             <h4>
                 You will need to fill this out completely
             </h4>
-            <form onClick = {updateIngredients}>
+            <form>
                 <p>
                     <label>
                         Name:

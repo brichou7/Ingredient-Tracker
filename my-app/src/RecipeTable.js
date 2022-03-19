@@ -3,17 +3,14 @@ import { Link } from "react-router-dom";
 import RecipeTableRow from "./RecipeTableRow";
 
 const RecipeTable = () => {
+    let data = require(".//microservice/data_write.json");
+    let recipes = data["Recipes"];
     return (
         <div>
             <p>
                 <Link to="/">
                     <button>
                         Back
-                    </button>
-                </Link>
-                <Link to="/AddRecipe">
-                    <button>
-                        Add Recipe
                     </button>
                 </Link>
             </p>
@@ -23,14 +20,12 @@ const RecipeTable = () => {
                 <thead>
                     <tr>
                         <th>Recipe Name</th>
+                        <th>Ingredients</th>
                         <th>Edit Recipe</th> 
-                        <th>Remove</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <RecipeTableRow name="Chicken Parm"></RecipeTableRow>
-                    <RecipeTableRow name="Salad"></RecipeTableRow>
-                    <RecipeTableRow name="Sandwich"></RecipeTableRow>
+                {recipes.map((recipe) => <RecipeTableRow name = {recipe["recipe-name"]} ingredients = {recipe["recipe-list"]}> </RecipeTableRow>)}
                 </tbody>
             </table>
         </div>

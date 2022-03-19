@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FcMinus } from "react-icons/fc";
+
 const RecipeTableRow = (props) => {
 
     return (
@@ -9,14 +9,14 @@ const RecipeTableRow = (props) => {
                 {props.name}
             </td>
             <td>
+                {props.ingredients}
+            </td>
+            <td>
                 <Link to="/EditRecipe">
                     <button>
                         Edit
                     </button>
                 </Link>
-            </td>
-            <td>
-                <FcMinus></FcMinus>
             </td>
         </tr>
     );

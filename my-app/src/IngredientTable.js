@@ -13,11 +13,6 @@ const IngredientTable = () => {
                         Back
                     </button>
                 </Link>
-                <Link to="/AddIngredient">
-                    <button>
-                        Add Ingredient
-                    </button>
-                </Link>
             </p>
             <table class="center" >
                 <caption>View/Edit Ingredients</caption>
@@ -25,7 +20,6 @@ const IngredientTable = () => {
                     <tr>
                         <th>Ingredient Name</th>
                         <th>Amount</th>
-                        <th>Remove</th>
                     </tr>
                 </thead>
                 <tbody>

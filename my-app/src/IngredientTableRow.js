@@ -1,5 +1,4 @@
 import React from "react";
-import { FcMinus } from "react-icons/fc";
 const IngredientTableRow = (props) => {
     return (
             <tr>
@@ -8,9 +7,6 @@ const IngredientTableRow = (props) => {
                 </td>
                 <td>
                     {props.amount}
-                </td>
-                <td>
-                    <FcMinus></FcMinus>
                 </td>
             </tr>
     );

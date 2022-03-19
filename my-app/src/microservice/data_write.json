@@ -9,8 +9,18 @@
       "ingredient-quantity": 2
     },
     {
-      "ingredient-name": "fish",
-      "ingredient-quantity": "3"
+      "ingredient-name": "Eggs",
+      "ingredient-quantity": 12
+    }
+  ],
+  "Recipes": [
+    {
+      "recipe-name": "sandwich",
+      "recipe-list": "bread, eggs, mayo"
+    },
+    {
+      "recipe-name": "Soup",
+      "recipe-list": "stock, chicken, noodles"
     }
   ]
 }
